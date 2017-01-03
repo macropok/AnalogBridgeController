@@ -1,0 +1,6 @@
+framework module Pods_AnalogBridgeController {
+  umbrella header "Pods-AnalogBridgeController-umbrella.h"
+
+  export *
+  module * { export * }
+}

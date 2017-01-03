@@ -1,0 +1,23 @@
+PODS:
+  - ActionSheetPicker-3.0 (2.2.0)
+  - JGProgressHUD (1.4)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - Stripe (9.2.0)
+
+DEPENDENCIES:
+  - ActionSheetPicker-3.0
+  - JGProgressHUD
+  - SDWebImage
+  - Stripe
+
+SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: d11a4c12c6aaf704b8a3f56d179198c99f3e41e6
+  JGProgressHUD: 1617b0940cf80bb53e8f7d6f0fd69252ea45d6d4
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  Stripe: a47770e82db059d0e7e160f9aabc2997055ee911
+
+PODFILE CHECKSUM: bf12ed9fb140d760c939bcbad0f445abea781ec4
+
+COCOAPODS: 1.1.1
