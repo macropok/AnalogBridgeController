@@ -91,7 +91,11 @@ class OrderHistoryController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let order:JSON = JSON(orders![indexPath.row])
         
-        let detailController:OrderDetailController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "orderDetailController") as! OrderDetailController
+        let podBundle = Bundle(for: self.classForCoder)
+        let bundleURL = podBundle.url(forResource: "AnalogBridgeController", withExtension: "bundle", subdirectory: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(url:bundleURL!))
+        
+        let detailController:OrderDetailController = storyboard.instantiateViewController(withIdentifier: "orderDetailController") as! OrderDetailController
         detailController.order = order
         let navController:UINavigationController = UINavigationController(rootViewController: detailController)
         self.slideMenuController()?.changeMainViewController(navController, close: true)

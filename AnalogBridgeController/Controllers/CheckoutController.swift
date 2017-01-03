@@ -481,8 +481,9 @@ class CheckoutController: UIViewController, UITextFieldDelegate, UITextViewDeleg
     func showSuccessController() {
         DispatchQueue.main.async {
             self.hud.dismiss()
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let podBundle = Bundle(for: self.classForCoder)
+            let bundleURL = podBundle.url(forResource: "AnalogBridgeController", withExtension: "bundle", subdirectory: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle(url:bundleURL!))
             let successController = storyboard.instantiateViewController(withIdentifier: "orderSuccessController")
             let navController = UINavigationController(rootViewController: successController)
             self.slideMenuController()?.changeMainViewController(navController, close: true)

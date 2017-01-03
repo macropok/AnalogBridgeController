@@ -25,13 +25,17 @@ class MenuController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func registerCells() {
-        menuTableView.register(UINib(nibName: "FormatCell", bundle: nil), forCellReuseIdentifier: "formatCell")
-        menuTableView.register(UINib(nibName: "OtherCell", bundle: nil), forCellReuseIdentifier: "otherCell")
-        menuTableView.register(UINib(nibName: "SendBoxCell", bundle: nil), forCellReuseIdentifier: "sendBoxCell")
+        let podBundle = Bundle(for: self.classForCoder)
+        let bundleURL = podBundle.url(forResource: "AnalogBridgeController", withExtension: "bundle", subdirectory: nil)
+        menuTableView.register(UINib(nibName: "FormatCell", bundle: Bundle(url:bundleURL!)), forCellReuseIdentifier: "formatCell")
+        menuTableView.register(UINib(nibName: "OtherCell", bundle: Bundle(url:bundleURL!)), forCellReuseIdentifier: "otherCell")
+        menuTableView.register(UINib(nibName: "SendBoxCell", bundle: Bundle(url:bundleURL!)), forCellReuseIdentifier: "sendBoxCell")
     }
     
     func setControllers() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let podBundle = Bundle(for: self.classForCoder)
+        let bundleURL = podBundle.url(forResource: "AnalogBridgeController", withExtension: "bundle", subdirectory: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(url:bundleURL!))
         let format = storyboard.instantiateViewController(withIdentifier: "formatController")
         formatController = UINavigationController(rootViewController: format)
         
@@ -154,7 +158,10 @@ class MenuController: UIViewController, UITableViewDataSource, UITableViewDelega
                 APIService.sharedService.estimateBox!.qty = APIService.sharedService.estimateBox!.qty + 1
             }
             
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let podBundle = Bundle(for: self.classForCoder)
+            let bundleURL = podBundle.url(forResource: "AnalogBridgeController", withExtension: "bundle", subdirectory: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle(url:bundleURL!))
+            
             let cart = storyboard.instantiateViewController(withIdentifier: "shoppingCartController")
             cartController = UINavigationController(rootViewController: cart)
             self.slideMenuController()?.changeMainViewController(self.cartController, close: true)

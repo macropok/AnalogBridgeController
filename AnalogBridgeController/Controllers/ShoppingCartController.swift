@@ -154,7 +154,11 @@ class ShoppingCartController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func checkOut(sender:AnyObject) {
-        let checkoutController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "checkoutController")
+        let podBundle = Bundle(for: self.classForCoder)
+        let bundleURL = podBundle.url(forResource: "AnalogBridgeController", withExtension: "bundle", subdirectory: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(url:bundleURL!))
+        
+        let checkoutController = storyboard.instantiateViewController(withIdentifier: "checkoutController")
         let navController:UINavigationController = UINavigationController(rootViewController: checkoutController)
         self.slideMenuController()?.changeMainViewController(navController, close: true)
     }
