@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "AnalogBridgeController"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "For Testing AnalogBridge"
   s.homepage     = "http://marco/AnalogBridgeController"
   s.license      = "BSD"
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.ios.deployment_target = "8.0"
   s.source       = { :git => "https://github.com/macropok/AnalogBridgeController.git", :tag => "#{s.version}" }
-  s.framework  = "UIKit"
+  s.framework  = "Foundation", "UIKit", "QuartzCore"
   s.dependency "SDWebImage"
   s.dependency "JGProgressHUD"
   s.dependency "ActionSheetPicker-3.0"
@@ -25,7 +25,8 @@ Pod::Spec.new do |s|
   s.source_files = "AnalogBridgeController/**/*.{swift}"
   s.resource_bundles = {
     'AnalogBridgeController' => [
-      'AnalogBridgeController/**/*.xib'
+      'AnalogBridgeController/**/*.xib',
+      'AnalogBridgeController/**/*.storyboard'
     ]
   }
 
