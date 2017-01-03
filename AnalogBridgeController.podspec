@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "AnalogBridgeController"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "For Testing AnalogBridge"
   s.homepage     = "http://marco/AnalogBridgeController"
   s.license      = "BSD"
@@ -25,8 +25,7 @@ Pod::Spec.new do |s|
   s.source_files = "AnalogBridgeController/**/*.{swift}"
   s.resource_bundles = {
     'AnalogBridgeController' => [
-      'AnalogBridgeController/**/*.xib',
-      'AnalogBridgeController/**/*.storyboard'
+      'AnalogBridgeController/**/*.{png,jpeg,jpg,storyboard,xib}'
     ]
   }
 
