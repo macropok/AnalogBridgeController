@@ -15,7 +15,7 @@
         <!--Format Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="formatController" id="BYZ-38-t0r" customClass="FormatController" customModule="AnalogBridge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="formatController" id="BYZ-38-t0r" customClass="FormatController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="92" width="320" height="476"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="formatViewCell" rowHeight="305" id="60b-nY-utH" customClass="FormatViewCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="formatViewCell" rowHeight="305" id="60b-nY-utH" customClass="FormatViewCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="305"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="60b-nY-utH" id="XOO-HW-jLP">
@@ -57,7 +57,7 @@
                                                     <rect key="frame" x="48" y="266" width="224" height="30"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="# Qty" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPV-pt-zRa">
-                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="30"/>
+                                                            <rect key="frame" x="11.5" y="0.0" width="201.5" height="30"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -65,26 +65,13 @@
                                                                 <outlet property="delegate" destination="60b-nY-utH" id="xJZ-kx-Os8"/>
                                                             </connections>
                                                         </textField>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4t-Ug-Bac">
-                                                            <rect key="frame" x="72" y="0.0" width="152" height="30"/>
-                                                            <color key="backgroundColor" red="0.46666666666666667" green="0.80392156862745101" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <state key="normal" title="ADD TO ESTIMATE">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="onAddEstimate:" destination="60b-nY-utH" eventType="touchUpInside" id="deV-Lc-4Z1"/>
-                                                            </connections>
-                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="7qE-gh-NNX"/>
-                                                        <constraint firstItem="bPV-pt-zRa" firstAttribute="leading" secondItem="Xyk-kt-ypQ" secondAttribute="leading" id="9hk-ne-v7h"/>
-                                                        <constraint firstItem="bPV-pt-zRa" firstAttribute="centerY" secondItem="Xyk-kt-ypQ" secondAttribute="centerY" id="FuZ-nW-HDN"/>
-                                                        <constraint firstItem="bPV-pt-zRa" firstAttribute="width" secondItem="Xyk-kt-ypQ" secondAttribute="width" multiplier="0.25" id="MmZ-yi-8sI"/>
-                                                        <constraint firstItem="O4t-Ug-Bac" firstAttribute="centerY" secondItem="bPV-pt-zRa" secondAttribute="centerY" id="mcl-nY-mKg"/>
-                                                        <constraint firstItem="O4t-Ug-Bac" firstAttribute="leading" secondItem="bPV-pt-zRa" secondAttribute="trailing" constant="16" id="rv7-um-15C"/>
-                                                        <constraint firstAttribute="trailing" secondItem="O4t-Ug-Bac" secondAttribute="trailing" id="sUk-Ex-nCC"/>
+                                                        <constraint firstItem="bPV-pt-zRa" firstAttribute="centerX" secondItem="Xyk-kt-ypQ" secondAttribute="centerX" id="aab-9X-9EQ"/>
+                                                        <constraint firstItem="bPV-pt-zRa" firstAttribute="width" secondItem="Xyk-kt-ypQ" secondAttribute="width" multiplier="0.9" id="csc-3g-eVl"/>
+                                                        <constraint firstItem="bPV-pt-zRa" firstAttribute="centerY" secondItem="Xyk-kt-ypQ" secondAttribute="centerY" id="kSK-tk-1gu"/>
                                                     </constraints>
                                                 </view>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="com-xX-yOU">
@@ -108,7 +95,6 @@
                                                 <constraint firstItem="Xyk-kt-ypQ" firstAttribute="width" secondItem="XOO-HW-jLP" secondAttribute="width" multiplier="0.7" id="jtf-9h-3sh"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.96069365740000001" green="0.96083182099999997" blue="0.9606620669" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="estValueField" destination="bPV-pt-zRa" id="jh4-En-55b"/>
                                             <outlet property="priceLabel" destination="pQA-D7-1gV" id="Y1S-yY-Aia"/>
@@ -145,7 +131,7 @@
         <!--Shopping Cart Controller-->
         <scene sceneID="f2U-pq-he4">
             <objects>
-                <viewController storyboardIdentifier="shoppingCartController" id="gEC-gL-174" customClass="ShoppingCartController" customModule="AnalogBridge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shoppingCartController" id="gEC-gL-174" customClass="ShoppingCartController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nfc-Ii-2D5"/>
                         <viewControllerLayoutGuide type="bottom" id="T9M-ON-tJT"/>
@@ -170,7 +156,7 @@
                                 <rect key="frame" x="0.0" y="123" width="320" height="877"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shoppingCartCell" rowHeight="292" id="grj-mq-Jdf" customClass="ShoppingCartCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="shoppingCartCell" rowHeight="292" id="grj-mq-Jdf" customClass="ShoppingCartCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="292"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="grj-mq-Jdf" id="zXy-6r-OkJ">
@@ -248,7 +234,7 @@
                                             <outlet property="removeCartButton" destination="6DD-6e-qOH" id="4Pj-6F-3XT"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="checkOutCell" rowHeight="292" id="OWM-eI-QUr" customClass="CheckOutCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="checkOutCell" rowHeight="292" id="OWM-eI-QUr" customClass="CheckOutCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="320" width="320" height="292"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OWM-eI-QUr" id="K1A-px-6Lr">
@@ -344,7 +330,7 @@
         <!--Checkout Controller-->
         <scene sceneID="z5X-Nl-yOc">
             <objects>
-                <viewController storyboardIdentifier="checkoutController" id="Cbg-kJ-x8D" customClass="CheckoutController" customModule="AnalogBridge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="checkoutController" id="Cbg-kJ-x8D" customClass="CheckoutController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BCA-Dk-A0T"/>
                         <viewControllerLayoutGuide type="bottom" id="cdj-b5-anh"/>
@@ -688,7 +674,7 @@
         <!--Order Success Controller-->
         <scene sceneID="7Kx-Zu-2Dr">
             <objects>
-                <viewController storyboardIdentifier="orderSuccessController" id="iMN-eG-Cw4" customClass="OrderSuccessController" customModule="AnalogBridge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="orderSuccessController" id="iMN-eG-Cw4" customClass="OrderSuccessController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xGn-Zx-aHm"/>
                         <viewControllerLayoutGuide type="bottom" id="Rq5-wO-hdu"/>
@@ -707,7 +693,7 @@
                                 <rect key="frame" x="0.0" y="82" width="320" height="1418"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderOverviewCell" rowHeight="180" id="xcq-oa-Ebk" customClass="OrderOverviewCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderOverviewCell" rowHeight="180" id="xcq-oa-Ebk" customClass="OrderOverviewCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xcq-oa-Ebk" id="3Rj-Ef-KEl">
@@ -790,7 +776,7 @@
                                             <outlet property="orderTotalPaid" destination="EIN-xL-c7U" id="0uQ-zb-fIa"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailCell" rowHeight="108" id="RaK-NX-Ks2" customClass="OrderDetailCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailCell" rowHeight="108" id="RaK-NX-Ks2" customClass="OrderDetailCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="208" width="320" height="108"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RaK-NX-Ks2" id="KJR-OM-4mj">
@@ -873,7 +859,7 @@
                                             <outlet property="orderTotal" destination="OPE-8F-pw5" id="k9r-pl-wCi"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderTotalCell" rowHeight="86" id="wIi-Qs-znq" customClass="OrderTotalCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderTotalCell" rowHeight="86" id="wIi-Qs-znq" customClass="OrderTotalCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="316" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wIi-Qs-znq" id="bKt-OU-ZGZ">
@@ -939,7 +925,7 @@
                                             <outlet property="orderTotal" destination="Ei0-FS-Dnx" id="auQ-9a-vse"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderLastCell" rowHeight="715" id="VTE-7Z-HhM" customClass="OrderLastCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderLastCell" rowHeight="715" id="VTE-7Z-HhM" customClass="OrderLastCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="402" width="320" height="715"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VTE-7Z-HhM" id="HZy-fZ-dgJ">
@@ -1159,7 +1145,7 @@
         <!--Order History Controller-->
         <scene sceneID="kIP-Go-COf">
             <objects>
-                <viewController storyboardIdentifier="orderHistoryController" id="1mr-N9-FJp" customClass="OrderHistoryController" customModule="AnalogBridge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="orderHistoryController" id="1mr-N9-FJp" customClass="OrderHistoryController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i66-YU-mLn"/>
                         <viewControllerLayoutGuide type="bottom" id="RbS-Bk-zpJ"/>
@@ -1178,7 +1164,7 @@
                                 <rect key="frame" x="0.0" y="82" width="320" height="486"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderHistoryCell" rowHeight="113" id="SVU-Vc-jnn" customClass="OrderHistoryCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderHistoryCell" rowHeight="113" id="SVU-Vc-jnn" customClass="OrderHistoryCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="113"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SVU-Vc-jnn" id="7rh-09-Ghg">
@@ -1290,7 +1276,7 @@
         <!--Order Detail Controller-->
         <scene sceneID="syq-OY-5sc">
             <objects>
-                <viewController storyboardIdentifier="orderDetailController" id="tH9-FW-BVr" customClass="OrderDetailController" customModule="AnalogBridge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="orderDetailController" id="tH9-FW-BVr" customClass="OrderDetailController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hgA-A7-OwP"/>
                         <viewControllerLayoutGuide type="bottom" id="fgJ-JD-Azb"/>
@@ -1309,7 +1295,7 @@
                                 <rect key="frame" x="0.0" y="82" width="320" height="918"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailDateCell" rowHeight="58" id="Ek9-XD-vqx" customClass="OrderDetailDateCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailDateCell" rowHeight="58" id="Ek9-XD-vqx" customClass="OrderDetailDateCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ek9-XD-vqx" id="xzG-XK-gDY">
@@ -1358,7 +1344,7 @@
                                             <outlet property="detailStatus" destination="8ss-E1-Vtt" id="DcS-Ml-uMy"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailQuoteStatusCell" rowHeight="32" id="kCD-P4-PwD" customClass="OrderDetailQuoteStatusCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailQuoteStatusCell" rowHeight="32" id="kCD-P4-PwD" customClass="OrderDetailQuoteStatusCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="86" width="320" height="32"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kCD-P4-PwD" id="3wP-hd-Dl8">
@@ -1390,7 +1376,7 @@
                                             <outlet property="quoteStatus" destination="qv0-tr-mUj" id="4iB-VR-NIn"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailEstimateAmountCell" rowHeight="115" id="gJc-xc-nnP" customClass="OrderDetailEstimateAmountCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailEstimateAmountCell" rowHeight="115" id="gJc-xc-nnP" customClass="OrderDetailEstimateAmountCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="118" width="320" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gJc-xc-nnP" id="bCM-A2-2FB">
@@ -1446,7 +1432,7 @@
                                             <outlet property="rejectButton" destination="WFM-oV-QMG" id="SWW-a8-mk1"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailQuoteAmountCell" rowHeight="33" id="dHD-Ha-eyq" customClass="OrderDetailQuoteAmountCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailQuoteAmountCell" rowHeight="33" id="dHD-Ha-eyq" customClass="OrderDetailQuoteAmountCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="233" width="320" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dHD-Ha-eyq" id="x4T-tt-VQv">
@@ -1478,7 +1464,7 @@
                                             <outlet property="quoteAmount" destination="xG9-Sf-3yh" id="WnS-d9-cb6"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailTotalPaidCell" rowHeight="33" id="RW6-3o-W1j" customClass="OrderDetailTotalPaidCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailTotalPaidCell" rowHeight="33" id="RW6-3o-W1j" customClass="OrderDetailTotalPaidCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="266" width="320" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RW6-3o-W1j" id="P5K-UG-Y0f">
@@ -1510,7 +1496,7 @@
                                             <outlet property="totalPaid" destination="eDT-Zv-uok" id="8ab-I0-ehf"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailItemCell" rowHeight="116" id="ivm-RT-1Cg" customClass="OrderDetailItemCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailItemCell" rowHeight="116" id="ivm-RT-1Cg" customClass="OrderDetailItemCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="299" width="320" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ivm-RT-1Cg" id="ti7-Dl-BDV">
@@ -1593,7 +1579,7 @@
                                             <outlet property="total" destination="dGt-Vs-fYz" id="7J8-9u-wJW"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailTotalCell" rowHeight="91" id="dRV-a1-6MS" customClass="OrderDetailTotalCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailTotalCell" rowHeight="91" id="dRV-a1-6MS" customClass="OrderDetailTotalCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="415" width="320" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dRV-a1-6MS" id="6dh-jE-70f">
@@ -1659,7 +1645,7 @@
                                             <outlet property="total" destination="x24-vc-Gno" id="DoO-WA-82v"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailCustomerDetailCell" rowHeight="95" id="NcU-bj-5KJ" customClass="OrderDetailCustomerDetailCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailCustomerDetailCell" rowHeight="95" id="NcU-bj-5KJ" customClass="OrderDetailCustomerDetailCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="506" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NcU-bj-5KJ" id="KHB-u8-jlN">
@@ -1716,7 +1702,7 @@
                                             <outlet property="telephone" destination="XJX-6z-PP1" id="oyx-Pf-TRN"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailShippingCell" rowHeight="154" id="tWu-q5-Qa0" customClass="OrderDetailShippingCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailShippingCell" rowHeight="154" id="tWu-q5-Qa0" customClass="OrderDetailShippingCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="601" width="320" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tWu-q5-Qa0" id="nbf-uk-PXY">
@@ -1816,7 +1802,7 @@
         <!--How It Works Controller-->
         <scene sceneID="FY1-RL-nMQ">
             <objects>
-                <viewController storyboardIdentifier="howItWorksController" id="w9c-tb-Y8L" customClass="HowItWorksController" customModule="AnalogBridge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="howItWorksController" id="w9c-tb-Y8L" customClass="HowItWorksController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ORS-fw-QKf"/>
                         <viewControllerLayoutGuide type="bottom" id="ELx-wB-WN3"/>
@@ -1863,7 +1849,7 @@
         <!--Features Controller-->
         <scene sceneID="2pW-ME-pEd">
             <objects>
-                <viewController storyboardIdentifier="featuresController" id="ABc-CI-b6X" customClass="FeaturesController" customModule="AnalogBridge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="featuresController" id="ABc-CI-b6X" customClass="FeaturesController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9DM-3x-hda"/>
                         <viewControllerLayoutGuide type="bottom" id="8ah-cB-R3I"/>
@@ -1908,7 +1894,7 @@
         <!--Faq View Controller-->
         <scene sceneID="ffb-AS-Fjq">
             <objects>
-                <viewController storyboardIdentifier="faqViewController" id="Wt4-6D-on4" customClass="FaqViewController" customModule="AnalogBridge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="faqViewController" id="Wt4-6D-on4" customClass="FaqViewController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UPe-nd-6ml"/>
                         <viewControllerLayoutGuide type="bottom" id="Fbu-co-EQU"/>
@@ -1927,7 +1913,7 @@
                                 <rect key="frame" x="0.0" y="82" width="320" height="486"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="faqViewCell" rowHeight="69" id="sYF-Fr-lnR" customClass="FaqViewCell" customModule="AnalogBridge" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="faqViewCell" rowHeight="69" id="sYF-Fr-lnR" customClass="FaqViewCell" customModule="AnalogBridgeController" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sYF-Fr-lnR" id="U4z-hY-bIz">
@@ -2008,7 +1994,7 @@
         <!--Menu Controller-->
         <scene sceneID="bNh-as-vQN">
             <objects>
-                <viewController storyboardIdentifier="menuController" id="5Op-MB-V0Z" customClass="MenuController" customModule="AnalogBridge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menuController" id="5Op-MB-V0Z" customClass="MenuController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SwV-T7-rad"/>
                         <viewControllerLayoutGuide type="bottom" id="OOu-X6-9Pk"/>

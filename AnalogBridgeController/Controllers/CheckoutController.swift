@@ -306,11 +306,6 @@ class CheckoutController: UIViewController, UITextFieldDelegate, UITextViewDeleg
                 state.text = st["name"].stringValue
             }
         }
-        
-        cardNumber.text = "4242424242424242"
-        billingZip.text = "33458"
-        expirationDate.text = "11/19"
-        cvc.text = "123"
     }
     
     func getValidateString(json:JSON, key:String) -> String {
