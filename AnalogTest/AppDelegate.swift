@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AnalogBridgeController
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,7 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        AnalogBridgeRunner.sharedRunner.setDefaultPublicKey(key: "pk_test_p7497xd1I92AHJBx4OLzjuC5")
+        AnalogBridgeRunner.sharedRunner.run(window: window!)
+        
         return true
     }
 

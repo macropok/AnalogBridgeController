@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2908860E167690F134EC35FD /* Pods_AnalogTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F7491D8466F73C72FD703B /* Pods_AnalogTest.framework */; };
 		80E7739A1E1B428500A83D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E773991E1B428500A83D9E /* AppDelegate.swift */; };
 		80E7739C1E1B428500A83D9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E7739B1E1B428500A83D9E /* ViewController.swift */; };
 		80E7739F1E1B428500A83D9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80E7739D1E1B428500A83D9E /* Main.storyboard */; };
@@ -22,6 +23,9 @@
 		80E773A01E1B428500A83D9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80E773A31E1B428500A83D9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		80E773A51E1B428500A83D9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85F7491D8466F73C72FD703B /* Pods_AnalogTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnalogTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B507E71CAB1B23231126721C /* Pods-AnalogTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnalogTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-AnalogTest/Pods-AnalogTest.release.xcconfig"; sourceTree = "<group>"; };
+		C5565A22CF2B08D05EC4134F /* Pods-AnalogTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnalogTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnalogTest/Pods-AnalogTest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2908860E167690F134EC35FD /* Pods_AnalogTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				80E773981E1B428500A83D9E /* AnalogTest */,
 				80E773971E1B428500A83D9E /* Products */,
+				93E228681FDE33CBE666F246 /* Pods */,
+				D0BFBBFEEDF84E92E67C9F8D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = AnalogTest;
 			sourceTree = "<group>";
 		};
+		93E228681FDE33CBE666F246 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C5565A22CF2B08D05EC4134F /* Pods-AnalogTest.debug.xcconfig */,
+				B507E71CAB1B23231126721C /* Pods-AnalogTest.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D0BFBBFEEDF84E92E67C9F8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85F7491D8466F73C72FD703B /* Pods_AnalogTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 80E773A81E1B428500A83D9E /* Build configuration list for PBXNativeTarget "AnalogTest" */;
 			buildPhases = (
+				6B55135BCFF3461906952F5A /* [CP] Check Pods Manifest.lock */,
 				80E773921E1B428500A83D9E /* Sources */,
 				80E773931E1B428500A83D9E /* Frameworks */,
 				80E773941E1B428500A83D9E /* Resources */,
+				DC6D5917813AF1AD17902DBA /* [CP] Embed Pods Frameworks */,
+				CAA2C0BED117133477F3B96C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B55135BCFF3461906952F5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CAA2C0BED117133477F3B96C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnalogTest/Pods-AnalogTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC6D5917813AF1AD17902DBA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AnalogTest/Pods-AnalogTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		80E773921E1B428500A83D9E /* Sources */ = {
@@ -258,6 +333,7 @@
 		};
 		80E773A91E1B428500A83D9E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5565A22CF2B08D05EC4134F /* Pods-AnalogTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AnalogTest/Info.plist;
@@ -270,6 +346,7 @@
 		};
 		80E773AA1E1B428500A83D9E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B507E71CAB1B23231126721C /* Pods-AnalogTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AnalogTest/Info.plist;
