@@ -16,7 +16,7 @@ AnalogBridgeRunner.sharedRunner.setAuthInfo(publicKey: publicKey, customerToken:
                 if bSuccess == true {
                     // present AnalogBridgeUI when login success
                     DispatchQueue.main.async {
-                        AnalogBridgeRunner.sharedRunner.runFrom(controller: self)
+                        AnalogBridgeRunner.sharedRunner.runFrom(controller: currentController)
                     }
                 }
                 else {
