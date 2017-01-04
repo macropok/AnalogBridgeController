@@ -64,7 +64,7 @@ extension UIViewController {
     func setBadge(count:Int) {
         
         let orderButton:MJBadgeBarButton = self.navigationItem.rightBarButtonItems![2] as! MJBadgeBarButton
-        if APIService.sharedService.customer!["approvals"] != nil {
+        if APIService.sharedService.customer != nil && APIService.sharedService.customer!["approvals"] != nil {
             let approvals = APIService.sharedService.customer!["approvals"].intValue
             orderButton.badgeValue = "\(approvals)"
         }
