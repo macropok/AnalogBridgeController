@@ -52,7 +52,7 @@ class OrderSuccessController: UIViewController, UITableViewDataSource, UITableVi
          
             cell.orderNumber.text = "\(order!["order_id"].intValue)"
             cell.orderDate.text = order!["order_date"].stringValue
-            cell.orderTotalPaid.text = "$ \(order!["paymentTotal"].doubleValue)"
+            cell.orderTotalPaid.text = String(format: "$ %.2f", order!["paymentTotal"].doubleValue)
             
             return cell
         }

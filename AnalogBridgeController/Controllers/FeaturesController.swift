@@ -10,17 +10,10 @@ import UIKit
 
 class FeaturesController: UIViewController {
 
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarItem()
         self.navigationItem.title = "Analog Bridge"
-        
-        let screenSize = UIScreen.main.bounds.size
-        scrollView.contentSize = CGSize(width: screenSize.width, height: screenSize.width * 880 / 427)
     }
     
     override func viewWillAppear(_ animated: Bool) {

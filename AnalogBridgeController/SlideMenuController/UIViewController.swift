@@ -27,7 +27,7 @@ extension UIViewController {
         let customButton = UIButton(type: UIButtonType.custom)
         customButton.frame = CGRect(x: 0, y: 0, width: 35.0, height: 35.0)
         customButton.addTarget(self, action: #selector(self.toggleShoppingCart), for: .touchUpInside)
-        customButton.setImage(UIImage(named: "ic_remove_shopping_cart", in: Bundle(url: bundleURL!), compatibleWith: nil)!, for: .normal)
+        customButton.setImage(UIImage(named: "ic_shopping_cart", in: Bundle(url: bundleURL!), compatibleWith: nil)!, for: .normal)
         
         shoppingCartButton = MJBadgeBarButton()
         shoppingCartButton.setup(customButton: customButton)
@@ -80,6 +80,6 @@ extension UIViewController {
     }
     
     func toggleExitApp() {
-        
+        AnalogBridgeRunner.sharedRunner.start()
     }
 }

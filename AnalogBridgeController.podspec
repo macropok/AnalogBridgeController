@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "AnalogBridgeController"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "For Testing AnalogBridge"
   s.homepage     = "http://marco/AnalogBridgeController"
   s.license      = "BSD"

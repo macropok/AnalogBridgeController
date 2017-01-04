@@ -9,17 +9,12 @@
 import UIKit
 
 class HowItWorksController: UIViewController {
-
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var imageViewConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarItem()
         self.navigationItem.title = "Analog Bridge"
         
-        let screenSize = UIScreen.main.bounds.size
-        scrollView.contentSize = CGSize(width: screenSize.width, height: screenSize.width * 920 / 427)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,6 +22,21 @@ class HowItWorksController: UIViewController {
         setBadge(count: APIService.sharedService.cartCount)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let screenWidth = UIScreen.main.bounds.size.width
+        
+        for i in 0..<6 {
+            let tag = 5000 + i
+            let view:UIView? = self.view.viewWithTag(tag)
+            if view != nil {
+                view!.layer.cornerRadius = screenWidth / 8
+                view!.layer.masksToBounds = true
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

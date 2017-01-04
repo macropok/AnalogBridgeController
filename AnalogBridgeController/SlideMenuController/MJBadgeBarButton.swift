@@ -110,7 +110,8 @@ class MJBadgeBarButton: UIBarButtonItem {
         
         let padding = self.badgePadding
         self.badge.frame = CGRect(x: self.badgeOriginX, y: self.badgeOriginY, width: minWidth + padding, height: minHeight + padding)
-        self.badge.layer.cornerRadius = self.badge.frame.width / 2
+        let min = (self.badge.frame.width > self.badge.frame.height) ? self.badge.frame.height : self.badge.frame.width
+        self.badge.layer.cornerRadius = min / 2
         self.badge.layer.masksToBounds = true
     }
     

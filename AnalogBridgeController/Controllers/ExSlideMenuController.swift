@@ -13,8 +13,14 @@ class ExSlideMenuController : SlideMenuController {
     override func isTagetViewController() -> Bool {
         if let vc = UIApplication.topViewController() {
             if vc is FormatController ||
-            vc is FaqViewController ||
-            vc is HowItWorksController {
+                vc is FaqViewController ||
+                vc is HowItWorksController ||
+                vc is OrderDetailController ||
+                vc is OrderHistoryController ||
+                vc is ShoppingCartController ||
+                vc is OrderSuccessController ||
+                vc is CheckoutController
+            {
                 return true
             }
         }

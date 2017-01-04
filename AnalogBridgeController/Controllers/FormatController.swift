@@ -46,27 +46,7 @@ class FormatController: UIViewController, UITableViewDataSource {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        loadTokenAndProduct()
-    }
-    
-    func loadTokenAndProduct() {
-        hud = JGProgressHUD(style: .dark)
-        hud.show(in: self.view)
-        
-        if APIService.sharedService.customerToken == "" {
-            APIService.sharedService.getToken(completion: {
-                bSuccess in
-                if bSuccess == true {
-                    self.getProducts()
-                }
-                else {
-                    self.showAlert(message: "Server Response Error")
-                }
-            })
-        }
-        else {
-            self.getProducts()
-        }
+        getProducts()
     }
     
     func showAlert(message:String) {
@@ -81,6 +61,9 @@ class FormatController: UIViewController, UITableViewDataSource {
     }
     
     func getProducts() {
+        hud = JGProgressHUD(style: .dark)
+        hud.show(in: self.view)
+        
         APIService.sharedService.getProducts(completion: {
             array in
             
@@ -120,7 +103,7 @@ class FormatController: UIViewController, UITableViewDataSource {
         cell.parentController = self
         
         cell.productName.text = product.name
-        cell.priceLabel.text = "$" + String(product.price) + " per " + product.unitName
+        cell.priceLabel.text = "$" + String(format: "%.2f", product.price) + " per " + product.unitName
         cell.productImageView.sd_setImage(with: URL(string: product.imageURL))
         if product.currentQty != 0 {
             cell.estValueField.text = String(product.currentQty)

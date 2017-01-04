@@ -408,6 +408,7 @@ class CheckoutController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         }
         
         if bComplete == false {
+            hud.dismiss()
             return
         }
         

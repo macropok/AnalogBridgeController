@@ -19,6 +19,7 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
 
         setNavigationBarItem()
         self.navigationItem.title = "Analog Bridge"
+        orderDetailLabel.text = "Order Detail #" + order["order_id"].stringValue
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,7 +70,7 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
             else if indexPath.row == lastIndex {
                 let cell:OrderDetailTotalPaidCell = tableView.dequeueReusableCell(withIdentifier: "orderDetailTotalPaidCell", for: indexPath) as! OrderDetailTotalPaidCell
                 
-                cell.totalPaid.text = "\(order["paymentTotal"].doubleValue)"
+                cell.totalPaid.text = String(format: "$%.2f", order["paymentTotal"].doubleValue)
                 
                 return cell
             }

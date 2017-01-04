@@ -58,9 +58,7 @@ public class APIService: NSObject {
     public static let sharedService:APIService = APIService()
     
     let apiURL = "https://api.analogbridge.io"
-    let tokenURL = "https://analogbridge.io/analog/customer/token"
-    var publicKey:String = "pk_test_eY7kL6QyHG3tNUHbmLdDYWWN"
-    //var publicKey:String = "pk_test_UgzKv4CtMRhOYGA228XH6713"
+    var publicKey:String = ""
     
     var customerToken:String = ""
     
@@ -92,29 +90,6 @@ public class APIService: NSObject {
     func getApiURL(url:String) -> String {
         let retURL = apiURL + "/v1/" + url
         return retURL
-    }
-    
-    func getToken(completion:@escaping (Bool) -> Void) {
-        self.sendGetRequest(url: tokenURL, completionHandler: {
-            data, response, error in
-            guard let _ = data, error == nil else {
-                completion(false)
-                return
-            }
-            
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
-                completion(false)
-                return
-            }
-            
-            self.customerToken = String(data: data!, encoding: .utf8)!
-            print ("Token - \(self.customerToken)")
-            
-            self.retriveCustomer(completion: {
-                bSuccess in
-                completion(bSuccess)
-            })
-        })
     }
     
     func retriveCustomer(completion: @escaping (Bool) -> Void) {
@@ -286,6 +261,7 @@ public class APIService: NSObject {
                 let url = self.getApiURL(url: "customer/orders")
                 let cardStr = self.getStringFromCard(card: cardObj!)
                 let estStr = self.getEstimateStr()
+                self.customerObjStr = self.customer!.rawString()
                 
                 let authStr:String = "{\"publicKey\":\"\(self.publicKey)\",\"card\":\(cardStr),\"customer\":\(self.customerObjStr!),\"estimate\":\(estStr)}"
                 let auth:String = authStr.replacingOccurrences(of: "\\n", with: "", options: .regularExpression)
