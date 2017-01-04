@@ -246,7 +246,8 @@ public class APIService: NSObject {
         })
     }
     
-    func setDefaultPublicKeyForPayment(key:String) {
+    func setDefaultPublicKey(key:String) {
+        publicKey = key
         Stripe.setDefaultPublishableKey(publicKey)
     }
     
