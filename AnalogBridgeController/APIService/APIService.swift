@@ -92,25 +92,25 @@ public class APIService: NSObject {
         return retURL
     }
     
-    func retriveCustomer(completion: @escaping (Bool) -> Void) {
+    func retriveCustomer(completion: @escaping (Bool, String) -> Void) {
         let authString = "{\"publicKey\":\"\(publicKey)\",\"customerToken\":\"\(customerToken)\"}"
         let url = "https://api.analogbridge.io/v1/customer/auth"
         self.sendPostRequest(url: url, body: authString, completionHandler: {
             data, response, error in
             guard let _ = data, error == nil else {
-                completion(false)
+                completion(false, "NO_RESPONSE")
                 return
             }
             
-            let responseStr = String(data: data!, encoding: .utf8)
+            let responseStr = String(data: data!, encoding: .utf8)!
             if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
                 print(httpStatus.statusCode)
-                print(responseStr!)
-                completion(false)
+                print(responseStr)
+                completion(false, responseStr)
                 return
             }
             
-            completion(true)
+            completion(true, responseStr)
         })
     }
     

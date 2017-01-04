@@ -10,14 +10,13 @@ import UIKit
 
 public class AnalogBridgeRunner: NSObject {
     public static let sharedRunner:AnalogBridgeRunner = AnalogBridgeRunner()
-    private var mWindow:UIWindow!
-    private var exitController:UIViewController!
-    
     private var menuController:UIViewController!
     
-    public func setInfo(publicKey:String, customerToken: String) {
+    public func setAuthInfo(publicKey:String, customerToken: String, completion:@escaping (Bool, String) -> Void) {
         APIService.sharedService.setDefaultPublicKey(key: publicKey)
         APIService.sharedService.customerToken = customerToken
+        
+        APIService.sharedService.retriveCustomer(completion: completion)
     }
     
     public func runFrom(controller:UIViewController) {
@@ -42,34 +41,5 @@ public class AnalogBridgeRunner: NSObject {
     
     public func exitAnalogBridge() {
         menuController.dismiss(animated: false, completion: nil)
-    }
-    
-    public func run(window:UIWindow) {
-        mWindow = window
-        let podBundle = Bundle(for: self.classForCoder)
-        let bundleURL = podBundle.url(forResource: "AnalogBridgeController", withExtension: "bundle", subdirectory: nil)
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle(url:bundleURL!))
-        
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: "formatController")
-        let leftViewController = storyboard.instantiateViewController(withIdentifier: "menuController") as! MenuController
-        
-        let nvc: UINavigationController = UINavigationController(rootViewController: mainViewController)
-        
-        let slideMenuController = ExSlideMenuController(mainViewController:nvc, leftMenuViewController: leftViewController)
-        slideMenuController.automaticallyAdjustsScrollViewInsets = true
-        slideMenuController.closeLeft()
-        
-        mWindow.rootViewController = slideMenuController
-        mWindow.makeKeyAndVisible()
-    }
-    
-    func registerExitController(controller:UIViewController) {
-        exitController = controller
-    }
-    
-    public func exit() {
-        mWindow.rootViewController = exitController
-        mWindow.makeKeyAndVisible()
     }
 }
