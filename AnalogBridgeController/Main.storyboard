@@ -2202,41 +2202,6 @@
             </objects>
             <point key="canvasLocation" x="-780" y="244"/>
         </scene>
-        <!--Loading Controller-->
-        <scene sceneID="mpc-0s-B98">
-            <objects>
-                <viewController storyboardIdentifier="loadingController" id="QI5-YF-h4E" customClass="LoadingController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="W7t-xs-g8g"/>
-                        <viewControllerLayoutGuide type="bottom" id="zZP-tJ-khf"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Wbv-TR-fJX">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXT-5W-T6j">
-                                <rect key="frame" x="16" y="269" width="288" height="30"/>
-                                <color key="backgroundColor" red="0.08235294118" green="0.6705882353" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Import Analog">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="loadAnalogBridge:" destination="QI5-YF-h4E" eventType="touchUpInside" id="q0K-Oh-4WP"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="zXT-5W-T6j" firstAttribute="centerY" secondItem="Wbv-TR-fJX" secondAttribute="centerY" id="9GJ-Vi-Fiv"/>
-                            <constraint firstItem="zXT-5W-T6j" firstAttribute="centerX" secondItem="Wbv-TR-fJX" secondAttribute="centerX" id="azw-B6-5eE"/>
-                            <constraint firstItem="zXT-5W-T6j" firstAttribute="width" secondItem="Wbv-TR-fJX" secondAttribute="width" multiplier="0.9" id="eud-yI-9Oh"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JZR-5p-Wzh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1477.5" y="-667.6056338028169"/>
-        </scene>
         <!--Features Controller-->
         <scene sceneID="ATm-D3-5xc">
             <objects>

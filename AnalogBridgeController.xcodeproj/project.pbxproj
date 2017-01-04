@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5EBB63BFFD1DE2E6BAF64404 /* Pods_AnalogBridgeController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5EC07A2DF45EBD1004D4858 /* Pods_AnalogBridgeController.framework */; };
 		80557DCE1E1C937300AAADD1 /* HowItWorksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80557DCD1E1C937300AAADD1 /* HowItWorksController.swift */; };
-		80557DD01E1C9CE700AAADD1 /* LoadingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80557DCF1E1C9CE700AAADD1 /* LoadingController.swift */; };
 		80BDB0191E1B365600BCC5C4 /* AnalogBridgeController.h in Headers */ = {isa = PBXBuildFile; fileRef = 80BDB0171E1B365600BCC5C4 /* AnalogBridgeController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80BDB0231E1B372900BCC5C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80BDB0201E1B372900BCC5C4 /* Main.storyboard */; };
 		80BDB0241E1B372900BCC5C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80BDB0211E1B372900BCC5C4 /* Assets.xcassets */; };
@@ -66,7 +65,6 @@
 /* Begin PBXFileReference section */
 		324E864685C8F19684DF0643 /* Pods-AnalogBridgeController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnalogBridgeController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnalogBridgeController/Pods-AnalogBridgeController.debug.xcconfig"; sourceTree = "<group>"; };
 		80557DCD1E1C937300AAADD1 /* HowItWorksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowItWorksController.swift; sourceTree = "<group>"; };
-		80557DCF1E1C9CE700AAADD1 /* LoadingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingController.swift; sourceTree = "<group>"; };
 		80BDB0141E1B365600BCC5C4 /* AnalogBridgeController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AnalogBridgeController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		80BDB0171E1B365600BCC5C4 /* AnalogBridgeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnalogBridgeController.h; sourceTree = "<group>"; };
 		80BDB0181E1B365600BCC5C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 				80E7734B1E1B385C00A83D9E /* OrderSuccessController.swift */,
 				80E773851E1B393B00A83D9E /* ShoppingCartController.swift */,
 				80557DCD1E1C937300AAADD1 /* HowItWorksController.swift */,
-				80557DCF1E1C9CE700AAADD1 /* LoadingController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -385,7 +382,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80557DD01E1C9CE700AAADD1 /* LoadingController.swift in Sources */,
 				80E773831E1B385C00A83D9E /* UIView.swift in Sources */,
 				80E7738A1E1B394600A83D9E /* OrderDetailEstimateAmountCell.swift in Sources */,
 				80E773731E1B385C00A83D9E /* FeaturesController.swift in Sources */,

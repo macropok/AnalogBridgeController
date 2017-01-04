@@ -80,6 +80,6 @@ extension UIViewController {
     }
     
     func toggleExitApp() {
-        AnalogBridgeRunner.sharedRunner.start()
+        
     }
 }
