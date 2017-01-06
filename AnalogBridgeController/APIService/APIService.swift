@@ -110,7 +110,7 @@ public class APIService: NSObject {
                 return
             }
             
-            getCustomer(completion: {
+            self.getCustomer(completion: {
                 bSuccess in
                 if bSuccess == true {
                     completion(true, responseStr)
