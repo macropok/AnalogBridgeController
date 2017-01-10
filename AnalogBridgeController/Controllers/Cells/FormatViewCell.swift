@@ -28,6 +28,15 @@ class FormatViewCell: UITableViewCell, UITextFieldDelegate {
         super.setSelected(selected, animated: animated)
 
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        estValueField.attributedPlaceholder = NSAttributedString(string: "# Qty",
+                                                               attributes: [NSForegroundColorAttributeName: UIColor.black])
+        
+        estValueField.layer.borderColor = UIColor.black.cgColor
+    }
 
     @IBAction func onAddEstimate(_ sender: Any) {
         

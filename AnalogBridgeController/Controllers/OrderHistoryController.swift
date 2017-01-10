@@ -78,7 +78,7 @@ class OrderHistoryController: UIViewController, UITableViewDelegate, UITableView
         
         cell.orderID.text = "#" + order["order_id"].stringValue
         cell.orderDate.text = order["order_date"].stringValue
-        cell.orderTotal.text = "$" + order["total_amount"].stringValue
+        cell.orderTotal.text = APIService.getCurrencyString(fromS: order["total_amount"].stringValue)
         cell.orderStatus.text = order["status_name"].stringValue
         
         return cell

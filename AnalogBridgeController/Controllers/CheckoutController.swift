@@ -247,7 +247,20 @@ class CheckoutController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         submitOrderButton.layer.cornerRadius = 4
         submitOrderButton.layer.masksToBounds = true
         
+        expirationDate.addTarget(self, action: #selector(expirationDateFieldChanged(textField:)), for: .editingChanged)
+        
         getPartialPayment()
+    }
+    
+    func expirationDateFieldChanged(textField: UITextField) {
+        let str:String = textField.text!
+        if str.length == 2 {
+            textField.text = str.appending("/")
+        }
+        else if str.length > 5 {
+            let index = str.index(str.startIndex, offsetBy: 5)
+            textField.text = str.substring(to: index)
+        }
     }
     
     func getPartialPayment() {
@@ -259,7 +272,7 @@ class CheckoutController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             else {
                 sum = APIService.sharedService.estimateBox!.price
             }
-            paymentValue.text = "$\(sum)"
+            paymentValue.text = APIService.getCurrencyString(fromD: sum)
         }
     }
     
@@ -452,6 +465,10 @@ class CheckoutController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             (APIService.sharedService.customer!["ship"])["email"].string = emailAddress.text!
         }
         
+        if customInstruction.text != nil {
+            APIService.sharedService.customer!["instructions"].string = customInstruction.text!
+        }
+        
         print(APIService.sharedService.customer!.rawString()!)
         
         let cardParam:STPCardParams = STPCardParams()
@@ -602,6 +619,17 @@ class CheckoutController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         if textView.text == "" {
             textView.text = "Custom Instruction"
         }
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == expirationDate {
+            if string == "" && textField.text?.length == 3 {
+                let dateString = textField.text
+                textField.text = dateString?.replacingOccurrences(of: "/", with: "")
+            }
+        }
+        
+        return true
     }
     
     override func didReceiveMemoryWarning() {

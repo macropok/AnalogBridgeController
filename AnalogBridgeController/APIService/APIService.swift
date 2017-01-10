@@ -181,6 +181,7 @@ public class APIService: NSObject {
     func getCustomer(completion:@escaping (Bool) -> Void) {
         if customer != nil {
             completion(true)
+            return
         }
         
         let url = getApiURL(url: "customer")
@@ -451,6 +452,7 @@ public class APIService: NSObject {
         return prodStr
     }
     
+    
     func getStringFromCard(card:STPToken) -> String {
         
         var brandStr:String = "unknown"
@@ -480,6 +482,18 @@ public class APIService: NSObject {
         let str:String = "{\"id\":\"\(card.tokenId)\",\"isLive\":\(card.livemode),\"brand\":\"\(brandStr)\",\"last4\":\"\(card.card!.last4())\",\"expMonth\":\(card.card!.expMonth),\"expYear\":\(card.card!.expYear),\"expString\":\"\(card.card!.expMonth)/\(card.card!.expYear)\"}"
         
         return str
+    }
+    
+    static func getCurrencyString(fromD:Double) -> String {
+        let numberFormat = NumberFormatter()
+        numberFormat.numberStyle = .currencyAccounting
+        let str:String = numberFormat.string(from: NSNumber(value: fromD))!
+        return str
+    }
+    
+    static func getCurrencyString(fromS:String) -> String {
+        let value:Double = Double(fromS)!
+        return APIService.getCurrencyString(fromD: value)
     }
     
     private func sendPostRequest(url: String, parameters: [String: AnyObject], completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {

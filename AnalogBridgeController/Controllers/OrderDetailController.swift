@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class OrderDetailController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var orderDetailLabel: UILabel!
     @IBOutlet weak var orderDetailTableView: UITableView!
     var order:JSON!
+    var hud:JGProgressHUD!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,15 +64,14 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
             }
             else if indexPath.row == approveIndex {
                 let cell:OrderDetailQuoteAmountCell = tableView.dequeueReusableCell(withIdentifier: "orderDetailQuoteAmountCell", for: indexPath) as! OrderDetailQuoteAmountCell
-                
-                cell.quoteAmount.text = order["total_amount"].stringValue
+                cell.quoteAmount.text = APIService.getCurrencyString(fromS: order["total_amount"].stringValue)
                 
                 return cell
             }
             else if indexPath.row == lastIndex {
                 let cell:OrderDetailTotalPaidCell = tableView.dequeueReusableCell(withIdentifier: "orderDetailTotalPaidCell", for: indexPath) as! OrderDetailTotalPaidCell
                 
-                cell.totalPaid.text = String(format: "$%.2f", order["paymentTotal"].doubleValue)
+                cell.totalPaid.text = APIService.getCurrencyString(fromD: order["paymentTotal"].doubleValue)
                 
                 return cell
             }
@@ -111,9 +112,9 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
             else if indexPath.row == count - 3 {
                 let cell:OrderDetailTotalCell = tableView.dequeueReusableCell(withIdentifier: "orderDetailTotalCell", for: indexPath) as! OrderDetailTotalCell
                 
-                cell.subTotal.text = order["total_no_shipping"].stringValue
-                cell.shipping.text = order["shipping_amount"].stringValue
-                cell.total.text = order["total_amount"].stringValue
+                cell.subTotal.text = APIService.getCurrencyString(fromS: order["total_no_shipping"].stringValue)
+                cell.shipping.text = APIService.getCurrencyString(fromS: order["shipping_amount"].stringValue)
+                cell.total.text = APIService.getCurrencyString(fromS: order["total_amount"].stringValue)
                 
                 return cell
             }
@@ -124,7 +125,7 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
                 cell.item.text = product["description"].stringValue
                 cell.quantity.text = "\(product["quantity"].stringValue)"
                 cell.price.text = product["price_per_unit"].stringValue
-                cell.total.text = product["total"].stringValue
+                cell.total.text = APIService.getCurrencyString(fromS: product["total"].stringValue)
                 
                 return cell
             }
@@ -250,19 +251,75 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func approveOrder(sender:UIButton) {
+        
+        let cell:UITableViewCell? = sender.superview?.superview as? UITableViewCell
+        if cell == nil {
+            return
+        }
+        
+        let indexPath = orderDetailTableView.indexPath(for: cell!)
+        if indexPath == nil {
+            return
+        }
+        
         let orderID:Int = order["order_id"].intValue
+        
+        hud = JGProgressHUD(style: .dark)
+        hud.show(in: self.view)
         APIService.sharedService.approveOrder(orderId: orderID, completion: {
             bSuccess, message in
-            
+            DispatchQueue.main.async {
+                self.hud.dismiss()
+                if bSuccess == true {
+                    self.orderDetailTableView.reloadRows(at: [indexPath!], with: .none)
+                }
+                else {
+                    self.showAlert(message: message)
+                    self.orderDetailTableView.reloadRows(at: [indexPath!], with: .none)
+                }
+            }
         })
     }
     
     func rejectOrder(sender:UIButton) {
+        let cell:UITableViewCell? = sender.superview?.superview as? UITableViewCell
+        if cell == nil {
+            return
+        }
+        
+        let indexPath = orderDetailTableView.indexPath(for: cell!)
+        if indexPath == nil {
+            return
+        }
+        
         let orderID:Int = order["order_id"].intValue
+        
+        hud = JGProgressHUD(style: .dark)
+        hud.show(in: self.view)
         APIService.sharedService.rejectOrder(orderId: orderID, completion: {
             bSuccess, message in
-            
+            DispatchQueue.main.async {
+                self.hud.dismiss()
+                if bSuccess == true {
+                    self.orderDetailTableView.reloadRows(at: [indexPath!], with: .none)
+                }
+                else {
+                    self.showAlert(message: message)
+                    self.orderDetailTableView.reloadRows(at: [indexPath!], with: .none)
+                }
+            }
         })
+    }
+    
+    func showAlert(message:String) {
+        DispatchQueue.main.async {
+            self.hud.dismiss()
+            
+            let alertController:UIAlertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            let okAction:UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
