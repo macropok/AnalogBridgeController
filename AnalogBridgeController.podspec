@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.license      = "BSD"
   s.author             = { "marco" => "marcorampok@outlook.com" }
   s.platform     = :ios
-  s.ios.deployment_target = "8.0"
+  s.ios.deployment_target = "9.0"
   s.source       = { :git => "https://github.com/macropok/AnalogBridgeController.git", :tag => "#{s.version}" }
   s.framework  = "Foundation", "UIKit", "QuartzCore"
   s.dependency "SDWebImage"
