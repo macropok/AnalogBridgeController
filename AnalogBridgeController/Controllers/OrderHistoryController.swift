@@ -17,8 +17,7 @@ class OrderHistoryController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setNavigationBarItem()
+        self.setNavigationBarItem()
         self.navigationItem.title = "Analog Bridge"
     }
     
@@ -32,6 +31,7 @@ class OrderHistoryController: UIViewController, UITableViewDelegate, UITableView
             
             if bSuccess == true {
                 DispatchQueue.main.async {
+                    self.setBadge(count: APIService.sharedService.cartCount)
                     self.hud.dismiss()
                     self.historyTableView.reloadData()
                 }

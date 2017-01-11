@@ -308,6 +308,10 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
                 if bSuccess == false {
                     self.showAlert(message: message)
                 }
+                else {
+                    APIService.sharedService.customer!["approvals"].int = APIService.sharedService.customer!["approvals"].intValue - 1
+                    self.setNavigationBarItem()
+                }
             }
         })
     }
@@ -336,6 +340,10 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
                 self.orderDetailTableView.reloadData()
                 if bSuccess == false {
                     self.showAlert(message: message)
+                }
+                else {
+                    APIService.sharedService.customer!["approvals"].int = APIService.sharedService.customer!["approvals"].intValue - 1
+                    self.setNavigationBarItem()
                 }
             }
         })

@@ -38,6 +38,7 @@ class FormatViewCell: UITableViewCell, UITextFieldDelegate {
         
         estValueField.layer.borderColor = UIColor.darkGray.cgColor
         estValueField.layer.borderWidth = 1.0
+        
     }
 
     @IBAction func onAddEstimate(_ sender: Any) {

@@ -54,7 +54,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xyk-kt-ypQ">
-                                                    <rect key="frame" x="64" y="266.5" width="192" height="30"/>
+                                                    <rect key="frame" x="64" y="258.5" width="192" height="30"/>
                                                     <subviews>
                                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="# Qty" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bPV-pt-zRa">
                                                             <rect key="frame" x="48" y="0.0" width="96" height="30"/>
@@ -91,8 +91,8 @@
                                                 <constraint firstItem="com-xX-yOU" firstAttribute="centerX" secondItem="XOO-HW-jLP" secondAttribute="centerX" id="TKV-XF-s3h"/>
                                                 <constraint firstItem="pQA-D7-1gV" firstAttribute="top" secondItem="uDX-Yh-dl0" secondAttribute="bottom" constant="8" id="Zb5-82-ecY"/>
                                                 <constraint firstItem="Xyk-kt-ypQ" firstAttribute="centerX" secondItem="XOO-HW-jLP" secondAttribute="centerX" id="tEv-uP-6Qu"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Xyk-kt-ypQ" secondAttribute="bottom" constant="8" id="v4L-nI-xfj"/>
-                                                <constraint firstItem="Xyk-kt-ypQ" firstAttribute="top" secondItem="com-xX-yOU" secondAttribute="bottom" constant="32" id="xa8-ep-zI0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Xyk-kt-ypQ" secondAttribute="bottom" constant="16" id="v4L-nI-xfj"/>
+                                                <constraint firstItem="Xyk-kt-ypQ" firstAttribute="top" secondItem="com-xX-yOU" secondAttribute="bottom" constant="24" id="xa8-ep-zI0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

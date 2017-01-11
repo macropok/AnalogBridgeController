@@ -83,7 +83,10 @@ public class APIService: NSObject {
         customerObjStr = nil
         products = []
         cartProducts = []
-        estimateBox = nil
+        if estimateBox != nil {
+            estimateBox!.currentQty = 0
+            estimateBox!.qty = 0
+        }
         order = nil
         cartCount = 0
     }
@@ -168,7 +171,12 @@ public class APIService: NSObject {
                 item.jsonData = json
                 
                 if item.unitName == "box" {
+                    var count = 0
+                    if self.estimateBox != nil {
+                        count = self.estimateBox!.qty
+                    }
                     self.estimateBox = item
+                    self.estimateBox!.qty = count
                 }
                 else {
                     self.products.append(item)
