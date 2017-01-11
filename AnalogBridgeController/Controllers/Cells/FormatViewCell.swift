@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 class FormatViewCell: UITableViewCell, UITextFieldDelegate {
 
@@ -36,6 +37,7 @@ class FormatViewCell: UITableViewCell, UITextFieldDelegate {
                                                                attributes: [NSForegroundColorAttributeName: UIColor.black])
         
         estValueField.layer.borderColor = UIColor.black.cgColor
+        estValueField.layer.borderWidth = 1.0
     }
 
     @IBAction func onAddEstimate(_ sender: Any) {

@@ -79,25 +79,46 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
                 let cell:OrderDetailShippingCell = tableView.dequeueReusableCell(withIdentifier: "orderDetailShippingCell", for: indexPath) as! OrderDetailShippingCell
                 
                 cell.name.text = order["ship_first_name"].stringValue + " " + order["ship_last_name"].stringValue
+                
+                var array:[UILabel] = []
+                array.append(cell.company)
+                array.append(cell.address1)
+                array.append(cell.address2)
+                array.append(cell.city)
+                
+                var lastIndex = 0
+                
                 if order["ship_company"] == nil || order["ship_company"].stringValue == "" {
-                    cell.company.isHidden = true
+                    lastIndex = 0
                 }
                 else {
-                    cell.company.isHidden = false
                     cell.company.text = order["ship_company"].stringValue
+                    lastIndex += 1
                 }
                 
-                cell.address1.text = order["ship_address1"].stringValue
+                let address1:UILabel = array[lastIndex]
+                address1.text = order["ship_address1"].stringValue
+                lastIndex += 1
                 
                 if order["ship_address2"] == nil || order["ship_address2"].stringValue == "" {
-                    cell.address2.isHidden = true
+                    
                 }
                 else {
-                    cell.address2.isHidden = false
-                    cell.address2.text = order["ship_address2"].stringValue
+                    let address2:UILabel = array[lastIndex]
+                    address2.text = order["ship_address2"].stringValue
+                    lastIndex += 1
                 }
                 
-                cell.city.text = order["ship_city"].stringValue + " " + order["ship_state"].stringValue + " " + order["ship_zip"].stringValue
+                let city:UILabel = array[lastIndex]
+                city.text = order["ship_city"].stringValue + ", " + order["ship_state"].stringValue + " " + order["ship_zip"].stringValue
+                
+                if lastIndex == 1 {
+                    cell.address2.isHidden = true
+                    cell.city.isHidden = true
+                }
+                else if lastIndex == 2 {
+                    cell.city.isHidden = true
+                }
                 
                 return cell
             }
@@ -271,11 +292,11 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
             DispatchQueue.main.async {
                 self.hud.dismiss()
                 if bSuccess == true {
-                    self.orderDetailTableView.reloadRows(at: [indexPath!], with: .none)
+                    self.orderDetailTableView.reloadData()
                 }
                 else {
                     self.showAlert(message: message)
-                    self.orderDetailTableView.reloadRows(at: [indexPath!], with: .none)
+                    self.orderDetailTableView.reloadData()
                 }
             }
         })
@@ -301,11 +322,11 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
             DispatchQueue.main.async {
                 self.hud.dismiss()
                 if bSuccess == true {
-                    self.orderDetailTableView.reloadRows(at: [indexPath!], with: .none)
+                    self.orderDetailTableView.reloadData()
                 }
                 else {
                     self.showAlert(message: message)
-                    self.orderDetailTableView.reloadRows(at: [indexPath!], with: .none)
+                    self.orderDetailTableView.reloadData()
                 }
             }
         })
