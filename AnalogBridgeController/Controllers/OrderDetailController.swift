@@ -15,12 +15,15 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var orderDetailTableView: UITableView!
     var order:JSON!
     var hud:JGProgressHUD!
+    var index:Int!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setNavigationBarItem()
         self.navigationItem.title = "Analog Bridge"
+        order = APIService.sharedService.orders[index]
         orderDetailLabel.text = "Order Detail #" + order["order_id"].stringValue
     }
     
@@ -229,6 +232,10 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
             return 0
         }
         
+        if order["pending"].boolValue != true {
+            return 0
+        }
+        
         var count = 1
         if order["order_estimate_status_id"].boolValue == true {
             count += 1
@@ -288,11 +295,10 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
         hud = JGProgressHUD(style: .dark)
         hud.show(in: self.view)
         APIService.sharedService.approveOrder(orderId: orderID, completion: {
-            bSuccess, message, order in
+            bSuccess, message in
             DispatchQueue.main.async {
                 self.hud.dismiss()
                 if bSuccess == true {
-                    self.order = order!
                     self.orderDetailTableView.reloadData()
                 }
                 else {
@@ -319,11 +325,10 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
         hud = JGProgressHUD(style: .dark)
         hud.show(in: self.view)
         APIService.sharedService.rejectOrder(orderId: orderID, completion: {
-            bSuccess, message, order in
+            bSuccess, message in
             DispatchQueue.main.async {
                 self.hud.dismiss()
                 if bSuccess == true {
-                    self.order = order!
                     self.orderDetailTableView.reloadData()
                 }
                 else {

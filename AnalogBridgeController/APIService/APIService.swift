@@ -319,18 +319,20 @@ public class APIService: NSObject {
         })
     }
     
-    func getOrder(orderId:Int) -> JSON? {
+    func getOrderIndex(orderId:Int) -> Int {
         if customer == nil {
-            return nil
+            return -1
         }
 
+        var index = 0
         for order in orders {
             if order["order_id"].intValue == orderId {
-                return order
+                return index
             }
+            index += 1
         }
         
-        return nil
+        return -1
     }
     
     func updateOrderEstimate(orderId:Int, approve:Bool) {
@@ -338,33 +340,87 @@ public class APIService: NSObject {
             return
         }
         
-        var order:JSON? = getOrder(orderId: orderId)
+        let index:Int = getOrderIndex(orderId: orderId)
         
-        if order == nil {
+        if index == -1 {
             return
         }
         
-        order!["rejected"].bool = false
-        order!["approved"].bool = false
-        order!["pending"].bool = false
-        order!["estimate_status"].bool = true
+        if APIService.sharedService.orders[index] == nil {
+            return
+        }
+        
+        APIService.sharedService.orders[index]["rejected"].bool = false
+        APIService.sharedService.orders[index]["approved"].bool = false
+        APIService.sharedService.orders[index]["pending"].bool = false
+        APIService.sharedService.orders[index]["estimate_status"].bool = true
         
         if approve == true {
-            order!["estimate_title"].string = "Approved"
+            APIService.sharedService.orders[index]["estimate_title"].string = "Approved"
         }
         else {
-            order!["estimate_title"].string = "Rejected"
+            APIService.sharedService.orders[index]["estimate_title"].string = "Rejected"
         }
     }
     
-    func approveOrder(orderId:Int, completion:@escaping (Bool, String, JSON?) -> Void) {
+    func approveOrder(order:JSON, completion:@escaping (Bool, String) -> Void) {
+        let order_id:Int = order["order_id"].intValue
+        let url = getApiURL(url: "customer/orders/\(order_id)/approve-estimate")
+        let authString = "{\"publicKey\":\"\(publicKey)\",\"customerToken\":\"\(customerToken)\"}"
+        sendPostRequest(url: url, body: authString, completionHandler: {
+            data, response, error in
+            guard let _ = data, error == nil else {
+                completion(false, "NO RESPONSE")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print (httpStatus.statusCode)
+                let jsonData = JSON(data: data!)
+                print (jsonData.rawString()!)
+                completion(false, "\(httpStatus.statusCode)")
+                return
+            }
+            
+            self.updateOrderEstimate(orderId: order_id, approve: true)
+            let message = String(data: data!, encoding: .utf8)
+            completion(true, message!)
+        })
+    }
+    
+    func rejectOrder(order:JSON, completion:@escaping (Bool, String) -> Void) {
+        let order_id:Int = order["order_id"].intValue
+        let url = getApiURL(url: "customer/orders/\(order_id)/reject-estimate")
+        let authString = "{\"publicKey\":\"\(publicKey)\",\"customerToken\":\"\(customerToken)\"}"
+        sendPostRequest(url: url, body: authString, completionHandler: {
+            data, response, error in
+            guard let _ = data, error == nil else {
+                completion(false, "NO RESPONSE")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {
+                print (httpStatus.statusCode)
+                let jsonData = JSON(data: data!)
+                print (jsonData.rawString()!)
+                completion(false, "\(httpStatus.statusCode)")
+                return
+            }
+            
+            self.updateOrderEstimate(orderId: order_id, approve: false)
+            let message = String(data: data!, encoding: .utf8)
+            completion(true, message!)
+        })
+    }
+    
+    func approveOrder(orderId:Int, completion:@escaping (Bool, String) -> Void) {
         let url = getApiURL(url: "customer/orders/\(orderId)/approve-estimate")
         
         let authString = "{\"publicKey\":\"\(publicKey)\",\"customerToken\":\"\(customerToken)\"}"
         sendPostRequest(url: url, body: authString, completionHandler: {
             data, response, error in
             guard let _ = data, error == nil else {
-                completion(false, "NO RESPONSE", nil)
+                completion(false, "NO RESPONSE")
                 return
             }
             
@@ -372,24 +428,23 @@ public class APIService: NSObject {
                 print (httpStatus.statusCode)
                 let jsonData = JSON(data: data!)
                 print (jsonData.rawString()!)
-                completion(false, "\(httpStatus.statusCode)", nil)
+                completion(false, "\(httpStatus.statusCode)")
                 return
             }
             
             self.updateOrderEstimate(orderId: orderId, approve: true)
             let message = String(data: data!, encoding: .utf8)
-            let order = self.getOrder(orderId: orderId)
-            completion(true, message!, order)
+            completion(true, message!)
         })
     }
     
-    func rejectOrder(orderId:Int, completion:@escaping (Bool, String, JSON?) -> Void) {
+    func rejectOrder(orderId:Int, completion:@escaping (Bool, String) -> Void) {
         let url = getApiURL(url: "customer/orders/\(orderId)/reject-estimate")
         let authString = "{\"publicKey\":\"\(publicKey)\",\"customerToken\":\"\(customerToken)\"}"
         sendPostRequest(url: url, body: authString, completionHandler: {
             data, response, error in
             guard let _ = data, error == nil else {
-                completion(false, "NO RESPONSE", nil)
+                completion(false, "NO RESPONSE")
                 return
             }
             
@@ -397,14 +452,13 @@ public class APIService: NSObject {
                 print (httpStatus.statusCode)
                 let jsonData = JSON(data: data!)
                 print (jsonData.rawString()!)
-                completion(false, "\(httpStatus.statusCode)", nil)
+                completion(false, "\(httpStatus.statusCode)")
                 return
             }
             
             self.updateOrderEstimate(orderId: orderId, approve: false)
-            let order = self.getOrder(orderId: orderId)
             let message = String(data: data!, encoding: .utf8)
-            completion(true, message!, order)
+            completion(true, message!)
         })
     }
     

@@ -86,6 +86,7 @@ class OrderHistoryController: UIViewController, UITableViewDelegate, UITableView
         
         let detailController:OrderDetailController = storyboard.instantiateViewController(withIdentifier: "orderDetailController") as! OrderDetailController
         detailController.order = APIService.sharedService.orders[indexPath.row]
+        detailController.index = indexPath.row
         let navController:UINavigationController = UINavigationController(rootViewController: detailController)
         self.slideMenuController()?.changeMainViewController(navController, close: true)
     }
