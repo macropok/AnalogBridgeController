@@ -36,7 +36,7 @@ class FormatViewCell: UITableViewCell, UITextFieldDelegate {
         estValueField.attributedPlaceholder = NSAttributedString(string: "# Qty",
                                                                attributes: [NSForegroundColorAttributeName: UIColor.black])
         
-        estValueField.layer.borderColor = UIColor.black.cgColor
+        estValueField.layer.borderColor = UIColor.darkGray.cgColor
         estValueField.layer.borderWidth = 1.0
     }
 

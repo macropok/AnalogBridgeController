@@ -288,10 +288,11 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
         hud = JGProgressHUD(style: .dark)
         hud.show(in: self.view)
         APIService.sharedService.approveOrder(orderId: orderID, completion: {
-            bSuccess, message in
+            bSuccess, message, order in
             DispatchQueue.main.async {
                 self.hud.dismiss()
                 if bSuccess == true {
+                    self.order = order!
                     self.orderDetailTableView.reloadData()
                 }
                 else {
@@ -318,10 +319,11 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
         hud = JGProgressHUD(style: .dark)
         hud.show(in: self.view)
         APIService.sharedService.rejectOrder(orderId: orderID, completion: {
-            bSuccess, message in
+            bSuccess, message, order in
             DispatchQueue.main.async {
                 self.hud.dismiss()
                 if bSuccess == true {
+                    self.order = order!
                     self.orderDetailTableView.reloadData()
                 }
                 else {

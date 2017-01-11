@@ -31,15 +31,9 @@ class OrderHistoryController: UIViewController, UITableViewDelegate, UITableView
             bSuccess in
             
             if bSuccess == true {
-                self.orders = APIService.sharedService.customer!["orders"].arrayObject as? [AnyObject]
-                if self.orders == nil {
-                    self.showAlert(message: "Get Customer Information Failed.")
-                }
-                else {
-                    DispatchQueue.main.async {
-                        self.hud.dismiss()
-                        self.historyTableView.reloadData()
-                    }
+                DispatchQueue.main.async {
+                    self.hud.dismiss()
+                    self.historyTableView.reloadData()
                 }
             }
             else {
