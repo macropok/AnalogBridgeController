@@ -1299,11 +1299,11 @@
                                 <rect key="frame" x="0.0" y="82" width="320" height="918"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailDateCell" rowHeight="58" id="Ek9-XD-vqx" customClass="OrderDetailDateCell" customModule="AnalogBridgeController" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="58"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailDateCell" rowHeight="66" id="Ek9-XD-vqx" customClass="OrderDetailDateCell" customModule="AnalogBridgeController" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ek9-XD-vqx" id="xzG-XK-gDY">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQL-V4-1M4">
@@ -1319,13 +1319,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Order Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sl6-uo-MNi">
-                                                    <rect key="frame" x="16" y="33" width="98" height="17"/>
+                                                    <rect key="frame" x="16" y="41" width="98" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ss-E1-Vtt">
-                                                    <rect key="frame" x="268" y="33" width="36" height="17"/>
+                                                    <rect key="frame" x="268" y="41" width="36" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1339,7 +1339,7 @@
                                                 <constraint firstItem="0vO-G1-jPR" firstAttribute="centerY" secondItem="WQL-V4-1M4" secondAttribute="centerY" id="ZII-IS-S6Z"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="0vO-G1-jPR" secondAttribute="trailing" constant="8" id="akw-ag-6De"/>
                                                 <constraint firstItem="Sl6-uo-MNi" firstAttribute="leading" secondItem="WQL-V4-1M4" secondAttribute="leading" id="bU6-02-a6H"/>
-                                                <constraint firstItem="Sl6-uo-MNi" firstAttribute="top" secondItem="WQL-V4-1M4" secondAttribute="bottom" constant="8" id="hSB-zq-iYY"/>
+                                                <constraint firstItem="Sl6-uo-MNi" firstAttribute="top" secondItem="WQL-V4-1M4" secondAttribute="bottom" constant="16" id="hSB-zq-iYY"/>
                                                 <constraint firstItem="8ss-E1-Vtt" firstAttribute="trailing" secondItem="0vO-G1-jPR" secondAttribute="trailing" id="zTg-6m-wuz"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1348,21 +1348,21 @@
                                             <outlet property="detailStatus" destination="8ss-E1-Vtt" id="DcS-Ml-uMy"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailQuoteStatusCell" rowHeight="32" id="kCD-P4-PwD" customClass="OrderDetailQuoteStatusCell" customModule="AnalogBridgeController" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="32"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailQuoteStatusCell" rowHeight="33" id="kCD-P4-PwD" customClass="OrderDetailQuoteStatusCell" customModule="AnalogBridgeController" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="94" width="320" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kCD-P4-PwD" id="3wP-hd-Dl8">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="32"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Quote Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C85-OV-Q5O">
-                                                    <rect key="frame" x="16" y="8" width="100" height="16"/>
+                                                    <rect key="frame" x="16" y="8" width="100" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qv0-tr-mUj">
-                                                    <rect key="frame" x="268" y="8" width="36" height="17"/>
+                                                    <rect key="frame" x="268" y="8.5" width="36" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1381,7 +1381,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailEstimateAmountCell" rowHeight="115" id="gJc-xc-nnP" customClass="OrderDetailEstimateAmountCell" customModule="AnalogBridgeController" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="118" width="320" height="115"/>
+                                        <rect key="frame" x="0.0" y="127" width="320" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gJc-xc-nnP" id="bCM-A2-2FB">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="115"/>
@@ -1436,11 +1436,11 @@
                                             <outlet property="rejectButton" destination="WFM-oV-QMG" id="SWW-a8-mk1"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailQuoteAmountCell" rowHeight="33" id="dHD-Ha-eyq" customClass="OrderDetailQuoteAmountCell" customModule="AnalogBridgeController" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="233" width="320" height="33"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailQuoteAmountCell" rowHeight="66" id="dHD-Ha-eyq" customClass="OrderDetailQuoteAmountCell" customModule="AnalogBridgeController" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="242" width="320" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dHD-Ha-eyq" id="x4T-tt-VQv">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="66"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="• Quote Amount:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haO-0h-sy2">
@@ -1450,26 +1450,35 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xG9-Sf-3yh">
-                                                    <rect key="frame" x="268" y="8.5" width="36" height="17"/>
+                                                    <rect key="frame" x="268" y="8" width="36" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPo-Sw-K7g">
+                                                    <rect key="frame" x="16" y="37" width="288" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="xG9-Sf-3yh" secondAttribute="trailing" constant="8" id="G7J-KE-dEA"/>
-                                                <constraint firstItem="xG9-Sf-3yh" firstAttribute="centerY" secondItem="haO-0h-sy2" secondAttribute="centerY" id="Xdf-VL-Uvh"/>
-                                                <constraint firstItem="haO-0h-sy2" firstAttribute="leading" secondItem="x4T-tt-VQv" secondAttribute="leadingMargin" constant="8" id="hdV-CS-gds"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="haO-0h-sy2" secondAttribute="bottom" id="nl1-lt-WSx"/>
-                                                <constraint firstAttribute="topMargin" secondItem="haO-0h-sy2" secondAttribute="top" id="r47-km-FvE"/>
+                                                <constraint firstItem="fPo-Sw-K7g" firstAttribute="leading" secondItem="haO-0h-sy2" secondAttribute="leading" id="52V-RO-vqw"/>
+                                                <constraint firstItem="fPo-Sw-K7g" firstAttribute="trailing" secondItem="xG9-Sf-3yh" secondAttribute="trailing" id="KTs-cS-QQ4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="xG9-Sf-3yh" secondAttribute="trailing" constant="8" id="OiK-nh-YPf"/>
+                                                <constraint firstItem="fPo-Sw-K7g" firstAttribute="top" secondItem="haO-0h-sy2" secondAttribute="bottom" constant="12" id="X1W-Nk-jiF"/>
+                                                <constraint firstAttribute="topMargin" secondItem="haO-0h-sy2" secondAttribute="top" id="hJy-0g-pY1"/>
+                                                <constraint firstItem="haO-0h-sy2" firstAttribute="leading" secondItem="x4T-tt-VQv" secondAttribute="leadingMargin" constant="8" id="tox-yc-XLM"/>
+                                                <constraint firstItem="xG9-Sf-3yh" firstAttribute="centerY" secondItem="haO-0h-sy2" secondAttribute="centerY" id="z0Q-vZ-ZRA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="approveRejectMessage" destination="fPo-Sw-K7g" id="qwX-rS-6zr"/>
                                             <outlet property="quoteAmount" destination="xG9-Sf-3yh" id="WnS-d9-cb6"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailTotalPaidCell" rowHeight="33" id="RW6-3o-W1j" customClass="OrderDetailTotalPaidCell" customModule="AnalogBridgeController" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="266" width="320" height="33"/>
+                                        <rect key="frame" x="0.0" y="308" width="320" height="33"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RW6-3o-W1j" id="P5K-UG-Y0f">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
@@ -1501,7 +1510,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailItemCell" rowHeight="116" id="ivm-RT-1Cg" customClass="OrderDetailItemCell" customModule="AnalogBridgeController" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="299" width="320" height="116"/>
+                                        <rect key="frame" x="0.0" y="341" width="320" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ivm-RT-1Cg" id="ti7-Dl-BDV">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="116"/>
@@ -1584,7 +1593,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailTotalCell" rowHeight="91" id="dRV-a1-6MS" customClass="OrderDetailTotalCell" customModule="AnalogBridgeController" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="415" width="320" height="91"/>
+                                        <rect key="frame" x="0.0" y="457" width="320" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dRV-a1-6MS" id="6dh-jE-70f">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
@@ -1650,7 +1659,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailCustomerDetailCell" rowHeight="95" id="NcU-bj-5KJ" customClass="OrderDetailCustomerDetailCell" customModule="AnalogBridgeController" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="506" width="320" height="95"/>
+                                        <rect key="frame" x="0.0" y="548" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NcU-bj-5KJ" id="KHB-u8-jlN">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
@@ -1707,7 +1716,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="orderDetailShippingCell" rowHeight="154" id="tWu-q5-Qa0" customClass="OrderDetailShippingCell" customModule="AnalogBridgeController" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="601" width="320" height="154"/>
+                                        <rect key="frame" x="0.0" y="643" width="320" height="154"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tWu-q5-Qa0" id="nbf-uk-PXY">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="154"/>

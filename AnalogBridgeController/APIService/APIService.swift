@@ -223,6 +223,7 @@ public class APIService: NSObject {
             return
         }
         
+        self.orders = []
         for data in dataArray! {
             let order:JSON = JSON(data)
             self.orders.append(order)

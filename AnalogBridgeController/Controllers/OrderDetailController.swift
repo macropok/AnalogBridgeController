@@ -16,7 +16,7 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
     var order:JSON!
     var hud:JGProgressHUD!
     var index:Int!
-    
+    var approveRejectMessage:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +68,7 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
             else if indexPath.row == approveIndex {
                 let cell:OrderDetailQuoteAmountCell = tableView.dequeueReusableCell(withIdentifier: "orderDetailQuoteAmountCell", for: indexPath) as! OrderDetailQuoteAmountCell
                 cell.quoteAmount.text = APIService.getCurrencyString(fromS: order["total_amount"].stringValue)
+                cell.approveRejectMessage.text = approveRejectMessage
                 
                 return cell
             }
@@ -164,17 +165,21 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
         let count = getRowsCount()
         
         if indexPath.row == 0 {
-            return 58
+            return 66
         }
         else {
             if indexPath.row == quoteIndex {
-                return 32
+                return 33
             }
             else if indexPath.row == pendingIndex {
                 return 115
             }
             else if indexPath.row == approveIndex {
-                return 33
+                if approveRejectMessage == "" {
+                    return 33
+                }
+                
+                return 66
             }
             else if indexPath.row == lastIndex {
                 return 33
@@ -204,10 +209,11 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
         if order["pending"].boolValue == true {
             number += 1
         }
-        
+/*
         if order["approved"].boolValue == true || order["rejected"].boolValue == true {
             number += 1
         }
+*/ 
         
         number += getProducts() + 3
         return number
@@ -221,18 +227,16 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
         if order["pending"].boolValue == true {
             count += 1
         }
+/*
         if order["approved"].boolValue == true || order["rejected"].boolValue == true {
             count += 1
         }
+*/
         return count
     }
     
     func getApproveIndex() -> Int {
-        if order["approved"].boolValue != true && order["rejected"].boolValue != true {
-            return 0
-        }
-        
-        if order["pending"].boolValue != true {
+        if order["approved"].boolValue != true || order["rejected"].boolValue != true {
             return 0
         }
         
@@ -298,12 +302,11 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
             bSuccess, message in
             DispatchQueue.main.async {
                 self.hud.dismiss()
-                if bSuccess == true {
-                    self.orderDetailTableView.reloadData()
-                }
-                else {
+                self.index = APIService.sharedService.getOrderIndex(orderId: orderID)
+                self.order = APIService.sharedService.orders[self.index]
+                self.orderDetailTableView.reloadData()
+                if bSuccess == false {
                     self.showAlert(message: message)
-                    self.orderDetailTableView.reloadData()
                 }
             }
         })
@@ -328,12 +331,11 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
             bSuccess, message in
             DispatchQueue.main.async {
                 self.hud.dismiss()
-                if bSuccess == true {
-                    self.orderDetailTableView.reloadData()
-                }
-                else {
+                self.index = APIService.sharedService.getOrderIndex(orderId: orderID)
+                self.order = APIService.sharedService.orders[self.index]
+                self.orderDetailTableView.reloadData()
+                if bSuccess == false {
                     self.showAlert(message: message)
-                    self.orderDetailTableView.reloadData()
                 }
             }
         })

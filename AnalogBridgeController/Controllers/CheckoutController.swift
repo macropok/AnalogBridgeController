@@ -516,7 +516,16 @@ class CheckoutController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         APIService.sharedService.submitOrder(card: cardParam, completion: {
             bSuccess, message in
             if bSuccess == true {
-                self.showSuccessController()
+                
+                APIService.sharedService.getCustomer(completion: {
+                    bSuccess in
+                    if bSuccess == true {
+                        self.showSuccessController()
+                    }
+                    else {
+                        self.showAlert(message: "Get Customer Information Failed.")
+                    }
+                })
             }
             else {
                 self.showAlert(message: message!)
