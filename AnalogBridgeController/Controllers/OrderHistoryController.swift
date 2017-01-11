@@ -65,16 +65,13 @@ class OrderHistoryController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if orders == nil {
-            return 0
-        }
-        return orders!.count
+        return APIService.sharedService.orders.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:OrderHistoryCell = tableView.dequeueReusableCell(withIdentifier: "orderHistoryCell", for: indexPath) as! OrderHistoryCell
         
-        let order:JSON = JSON(orders![indexPath.row])
+        let order:JSON = APIService.sharedService.orders[indexPath.row]
         
         cell.orderID.text = "#" + order["order_id"].stringValue
         cell.orderDate.text = order["order_date"].stringValue
@@ -89,14 +86,12 @@ class OrderHistoryController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let order:JSON = JSON(orders![indexPath.row])
-        
         let podBundle = Bundle(for: self.classForCoder)
         let bundleURL = podBundle.url(forResource: "AnalogBridgeController", withExtension: "bundle", subdirectory: nil)
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle(url:bundleURL!))
         
         let detailController:OrderDetailController = storyboard.instantiateViewController(withIdentifier: "orderDetailController") as! OrderDetailController
-        detailController.order = order
+        detailController.order = APIService.sharedService.orders[indexPath.row]
         let navController:UINavigationController = UINavigationController(rootViewController: detailController)
         self.slideMenuController()?.changeMainViewController(navController, close: true)
     }

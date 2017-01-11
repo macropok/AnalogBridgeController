@@ -67,6 +67,7 @@ public class APIService: NSObject {
     
     var products:[Product] = []
     var cartProducts:[Product] = []
+    var orders:[JSON] = []
     var estimateBox:Product?
     
     var order:JSON? = nil
@@ -205,6 +206,7 @@ public class APIService: NSObject {
             
             self.customerObjStr = String(data: data!, encoding: .utf8)
             self.customer = JSON(data: data!)
+            self.getOrdersFromCustomer()
             
             if self.customer == nil {
                 completion(false)
@@ -213,6 +215,23 @@ public class APIService: NSObject {
                 completion(true)
             }
         })
+    }
+    
+    func getOrdersFromCustomer() {
+        if customer == nil {
+            return
+        }
+        
+        let dataArray = customer!["orders"].arrayObject as? [AnyObject]
+        
+        if dataArray == nil {
+            return
+        }
+        
+        for data in dataArray! {
+            let order:JSON = JSON(data)
+            self.orders.append(order)
+        }
     }
     
     func getCartCount() -> Int {
@@ -309,10 +328,8 @@ public class APIService: NSObject {
         if customer == nil {
             return nil
         }
-        
-        let orders:[AnyObject] = customer!["orders"].arrayObject as! [AnyObject]
-        for orderdata in orders {
-            let order:JSON = JSON(orderdata)
+
+        for order in orders {
             if order["order_id"].intValue == orderId {
                 return order
             }
