@@ -180,11 +180,6 @@ public class APIService: NSObject {
     }
     
     func getCustomer(completion:@escaping (Bool) -> Void) {
-        if customer != nil {
-            completion(true)
-            return
-        }
-        
         let url = getApiURL(url: "customer")
         let authData = [
             "publicKey" : publicKey,
