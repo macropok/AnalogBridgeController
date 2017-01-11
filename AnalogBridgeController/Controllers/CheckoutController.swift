@@ -247,20 +247,38 @@ class CheckoutController: UIViewController, UITextFieldDelegate, UITextViewDeleg
         submitOrderButton.layer.cornerRadius = 4
         submitOrderButton.layer.masksToBounds = true
         
-        expirationDate.addTarget(self, action: #selector(expirationDateFieldChanged(textField:)), for: .editingChanged)
+        expirationDate.addTarget(self, action: #selector(textFieldChanged(textField:)), for: .editingChanged)
+        cvc.addTarget(self, action: #selector(textFieldChanged(textField:)), for: .editingChanged)
+        cardNumber.addTarget(self, action: #selector(textFieldChanged(textField:)), for: .editingChanged)
+        
         
         getPartialPayment()
     }
     
-    func expirationDateFieldChanged(textField: UITextField) {
+    func textFieldChanged(textField: UITextField) {
         let str:String = textField.text!
-        if str.length == 2 {
-            textField.text = str.appending("/")
+        if textField == expirationDate {
+            if str.length == 2 {
+                textField.text = str.appending("/")
+            }
+            else if str.length > 5 {
+                let index = str.index(str.startIndex, offsetBy: 5)
+                textField.text = str.substring(to: index)
+            }
         }
-        else if str.length > 5 {
-            let index = str.index(str.startIndex, offsetBy: 5)
-            textField.text = str.substring(to: index)
+        else if textField == cvc {
+            if str.length > 3 {
+                let index = str.index(str.startIndex, offsetBy: 3)
+                textField.text = str.substring(to: index)
+            }
         }
+        else if textField == cardNumber {
+            if str.length > 16 {
+                let index = str.index(str.startIndex, offsetBy: 16)
+                textField.text = str.substring(to: index)
+            }
+        }
+        
     }
     
     func getPartialPayment() {
@@ -446,13 +464,13 @@ class CheckoutController: UIViewController, UITextFieldDelegate, UITextViewDeleg
             (APIService.sharedService.customer!["ship"])["company"].string = company.text!
         }
         if address1.text != nil {
-            (APIService.sharedService.customer!["ship"])["address1"].string = company.text!
+            (APIService.sharedService.customer!["ship"])["address1"].string = address1.text!
         }
         if address2.text != nil {
-            (APIService.sharedService.customer!["ship"])["address1"].string = company.text!
+            (APIService.sharedService.customer!["ship"])["address2"].string = company.text!
         }
         if city.text != nil {
-            (APIService.sharedService.customer!["ship"])["city"].string = company.text!
+            (APIService.sharedService.customer!["ship"])["city"].string = city.text!
         }
         (APIService.sharedService.customer!["ship"])["state"].string = getShortStateName(stateName: self.state.text!)
         if zipCode.text != nil {

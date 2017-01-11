@@ -218,4 +218,7 @@ class ShoppingCartController: UIViewController, UITableViewDelegate, UITableView
         checkOutCell?.sumLabel.text = APIService.getCurrencyString(fromD: getEstimateSum())
     }
 
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 292
+    }
 }

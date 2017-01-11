@@ -56,7 +56,7 @@ class OrderDetailController: UIViewController, UITableViewDataSource, UITableVie
             else if indexPath.row == pendingIndex {
                 let cell:OrderDetailEstimateAmountCell = tableView.dequeueReusableCell(withIdentifier: "orderDetailEstimateAmountCell", for: indexPath) as! OrderDetailEstimateAmountCell
                 
-                cell.estimateAmount.text = order["estimate_title"].stringValue
+                cell.estimateAmount.text = APIService.getCurrencyString(fromS: order["total_amount"].stringValue)
                 cell.approveButton.addTarget(self, action: #selector(self.approveOrder(sender:)), for: .touchUpInside)
                 cell.rejectButton.addTarget(self, action: #selector(self.rejectOrder(sender:)), for: .touchUpInside)
                 

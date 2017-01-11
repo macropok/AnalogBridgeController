@@ -347,7 +347,8 @@ public class APIService: NSObject {
     
     func approveOrder(orderId:Int, completion:@escaping (Bool, String) -> Void) {
         let url = getApiURL(url: "customer/orders/\(orderId)/approve-estimate")
-        let authString = "{\"publicKey\":\"\(publicKey)\""
+        
+        let authString = "{\"publicKey\":\"\(publicKey)\",\"customerToken\":\"\(customerToken)\"}"
         sendPostRequest(url: url, body: authString, completionHandler: {
             data, response, error in
             guard let _ = data, error == nil else {
@@ -371,7 +372,7 @@ public class APIService: NSObject {
     
     func rejectOrder(orderId:Int, completion:@escaping (Bool, String) -> Void) {
         let url = getApiURL(url: "customer/orders/\(orderId)/reject-estimate")
-        let authString = "{\"publicKey\":\"\(publicKey)\""
+        let authString = "{\"publicKey\":\"\(publicKey)\",\"customerToken\":\"\(customerToken)\"}"
         sendPostRequest(url: url, body: authString, completionHandler: {
             data, response, error in
             guard let _ = data, error == nil else {
