@@ -131,7 +131,7 @@
         <!--How Page Controller-->
         <scene sceneID="5bm-6m-PJT">
             <objects>
-                <viewController id="fbP-kR-FOw" customClass="HowPageController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="howPageController" id="fbP-kR-FOw" customClass="HowPageController" customModule="AnalogBridgeController" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TAL-SV-6RT"/>
                         <viewControllerLayoutGuide type="bottom" id="RtI-Yn-FqP"/>
@@ -146,7 +146,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oXW-az-IiG">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXW-az-IiG">
                                 <rect key="frame" x="0.0" y="82" width="320" height="486"/>
                                 <connections>
                                     <outlet property="delegate" destination="fbP-kR-FOw" id="CFa-cA-OfL"/>

@@ -13,6 +13,14 @@ class HowPageController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var titleArray = [
+        "Receive analog transfer box 2-5 business days after purchase",
+        "Add your analog media to the box",
+        "Ready package with included materials and pre-paid FedEx label",
+        "Call FedEx for free pick-up or drop-off at a local FedEx Location",
+        "In 2-3 weeks all media is digitized and available in this app",
+        "Receive your precious originals back just as they were"
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +45,13 @@ class HowPageController: UIViewController, UIScrollViewDelegate {
         for i in 0..<6 {
             let nib = UINib(nibName: "PageView", bundle: Bundle(url:bundleURL!))
             let contentView:PageView = nib.instantiate(withOwner: nil, options: nil)[0] as! PageView
-            let imageName:String = String(format: "%d", i)
+            var imageName:String = String(format: "%d", i + 1)
+            
+            if i == 5 {
+                imageName = "1"
+            }
+            
+            contentView.bodyLabel.text = titleArray[i]
             contentView.imageView.image = UIImage(named: imageName, in: Bundle(url: bundleURL!), compatibleWith: nil)
             let frame = CGRect(x: CGFloat(i) * scrollSize.width, y: 0, width: scrollSize.width, height: scrollSize.height)
             contentView.frame = frame
@@ -61,7 +75,7 @@ class HowPageController: UIViewController, UIScrollViewDelegate {
             pageControl.currentPage = 0
         }
         else {
-            pageControl.currentPage = Int((offset.x - width / 2) / width)
+            pageControl.currentPage = Int((offset.x - width / 2) / width) + 1
         }
     }
 }
