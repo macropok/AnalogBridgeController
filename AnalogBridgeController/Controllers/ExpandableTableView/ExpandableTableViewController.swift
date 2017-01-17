@@ -79,6 +79,9 @@ open class ExpandableTableViewController: UIViewController, UITableViewDataSourc
     
     fileprivate func addSubviews() {
         self.view.addSubview(self.tableView)
+        
+        self.tableView.separatorStyle = .none
+        
         let views = ["view":self.tableView]
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
         self.view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views))
@@ -112,14 +115,14 @@ open class ExpandableTableViewController: UIViewController, UITableViewDataSourc
     open func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.dynamicCellHeight(indexPath)
     }
-    
+/*
     open func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         tableView.separatorInset = UIEdgeInsets.zero
         tableView.layoutMargins = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
        
     }
-    
+*/    
     //MARK: table view delegate
     
     open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -130,6 +133,7 @@ open class ExpandableTableViewController: UIViewController, UITableViewDataSourc
             self.expandedIndexPaths.append(indexPath)
         }
         self.tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        self.tableView.scrollToRow(at: indexPath, at: .none, animated: true)
     }
     
     

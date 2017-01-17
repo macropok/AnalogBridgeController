@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5EBB63BFFD1DE2E6BAF64404 /* Pods_AnalogBridgeController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5EC07A2DF45EBD1004D4858 /* Pods_AnalogBridgeController.framework */; };
 		80557DCE1E1C937300AAADD1 /* HowItWorksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80557DCD1E1C937300AAADD1 /* HowItWorksController.swift */; };
+		8064A92A1E2E55D50005AD36 /* PageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8064A9291E2E55D50005AD36 /* PageView.xib */; };
+		8064A92C1E2E583A0005AD36 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064A92B1E2E583A0005AD36 /* PageView.swift */; };
+		8064A92E1E2E58880005AD36 /* HowPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064A92D1E2E58880005AD36 /* HowPageController.swift */; };
 		808EB1D01E2CDFE100D5F31D /* DisclosureIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808EB1CD1E2CDFE100D5F31D /* DisclosureIndicator.swift */; };
 		808EB1D11E2CDFE100D5F31D /* ExpandableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808EB1CE1E2CDFE100D5F31D /* ExpandableTableViewCell.swift */; };
 		808EB1D21E2CDFE100D5F31D /* ExpandableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808EB1CF1E2CDFE100D5F31D /* ExpandableTableViewController.swift */; };
@@ -68,6 +71,9 @@
 /* Begin PBXFileReference section */
 		324E864685C8F19684DF0643 /* Pods-AnalogBridgeController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnalogBridgeController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AnalogBridgeController/Pods-AnalogBridgeController.debug.xcconfig"; sourceTree = "<group>"; };
 		80557DCD1E1C937300AAADD1 /* HowItWorksController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowItWorksController.swift; sourceTree = "<group>"; };
+		8064A9291E2E55D50005AD36 /* PageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageView.xib; sourceTree = "<group>"; };
+		8064A92B1E2E583A0005AD36 /* PageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
+		8064A92D1E2E58880005AD36 /* HowPageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HowPageController.swift; sourceTree = "<group>"; };
 		808EB1CD1E2CDFE100D5F31D /* DisclosureIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisclosureIndicator.swift; sourceTree = "<group>"; };
 		808EB1CE1E2CDFE100D5F31D /* ExpandableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewCell.swift; sourceTree = "<group>"; };
 		808EB1CF1E2CDFE100D5F31D /* ExpandableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableTableViewController.swift; sourceTree = "<group>"; };
@@ -216,6 +222,9 @@
 				80E7734B1E1B385C00A83D9E /* OrderSuccessController.swift */,
 				80E773851E1B393B00A83D9E /* ShoppingCartController.swift */,
 				80557DCD1E1C937300AAADD1 /* HowItWorksController.swift */,
+				8064A9291E2E55D50005AD36 /* PageView.xib */,
+				8064A92B1E2E583A0005AD36 /* PageView.swift */,
+				8064A92D1E2E58880005AD36 /* HowPageController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -354,6 +363,7 @@
 				80E7736C1E1B385C00A83D9E /* OtherCell.xib in Resources */,
 				80E7736E1E1B385C00A83D9E /* SendBoxCell.xib in Resources */,
 				80BDB0241E1B372900BCC5C4 /* Assets.xcassets in Resources */,
+				8064A92A1E2E55D50005AD36 /* PageView.xib in Resources */,
 				80BDB0231E1B372900BCC5C4 /* Main.storyboard in Resources */,
 				80E7735D1E1B385C00A83D9E /* FormatCell.xib in Resources */,
 			);
@@ -404,6 +414,7 @@
 				80E773831E1B385C00A83D9E /* UIView.swift in Sources */,
 				80E7738A1E1B394600A83D9E /* OrderDetailEstimateAmountCell.swift in Sources */,
 				80E773731E1B385C00A83D9E /* FeaturesController.swift in Sources */,
+				8064A92E1E2E58880005AD36 /* HowPageController.swift in Sources */,
 				80E773661E1B385C00A83D9E /* OrderDetailTotalPaidCell.swift in Sources */,
 				80E7735F1E1B385C00A83D9E /* OrderDetailCell.swift in Sources */,
 				80E773601E1B385C00A83D9E /* OrderDetailDateCell.swift in Sources */,
@@ -419,6 +430,7 @@
 				80557DCE1E1C937300AAADD1 /* HowItWorksController.swift in Sources */,
 				80E773761E1B385C00A83D9E /* MenuController.swift in Sources */,
 				80E773691E1B385C00A83D9E /* OrderOverviewCell.swift in Sources */,
+				8064A92C1E2E583A0005AD36 /* PageView.swift in Sources */,
 				80E773811E1B385C00A83D9E /* UIImageView.swift in Sources */,
 				80E773711E1B385C00A83D9E /* ExSlideMenuController.swift in Sources */,
 				80E7737F1E1B385C00A83D9E /* UIColor.swift in Sources */,
